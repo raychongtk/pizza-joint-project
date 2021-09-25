@@ -1,7 +1,7 @@
 package pizzajoint.common.api;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 
 /**
@@ -12,7 +12,6 @@ public class CreateOrderRequest {
     public String pizzaName;
 
     @NotNull
-    @Min(value = 1)
     public Integer quantity;
 
     @NotNull

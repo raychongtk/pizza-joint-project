@@ -1,6 +1,7 @@
 package pizzajoint.common.api;
 
-import javax.validation.constraints.NotNull;
+import org.jetbrains.annotations.NotNull;
+
 
 /**
  * @author raychong
