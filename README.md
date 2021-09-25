@@ -54,4 +54,14 @@ etc.
 
 after that, we can distribute our data horizontally and the query speed will be improved as we don't store numerous data inside one table.
 
-But definitely, the architecture complexity will be increased if we do sharding on database, because we need to write our own hashing function to route the traffic to different table or different database. 
+But definitely, the architecture complexity will be increased if we do sharding on database, because we need to write our own hashing function to route the traffic to different table or different database.
+
+# Further Discussion
+
+## Real-time order tracking
+
+We can adopt `Kafka` as message stream middleware to process the data asynchronously and use `Server-sent Events` technique to stream the data to client side for real time order tracking. For example, when the order is created,it may go through few statuses when the pizza joint process the order (
+e.g CREATED, PROCESSING, DELIVERING, DELIVERED etc.). We can utilize the said techniques to monitor the status and push the latest status to users for order tracking.
+
+On Pizza Joint side, we also can utilize this technique to let the pizza joint staffs know the latest orders in real-time. When the order is created in backend, it pushes to staff portal to notify the staffs immediately. 
+
