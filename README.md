@@ -24,6 +24,12 @@ Entrypoint: POST `http://localhost/pizza`
 
 # Security
 
+`HTTPS`: To secure our endpoint and traffic, `HTTPS` must be applied to encrypt user traffic and data. In this project, for demo purpose, I just use `HTTP`, but in production environment, we must use `HTTPS`.
+
+`Encryption`: In real use case, when ordering pizza, the payment process will be involved in our system, we need to deal with the payment data carefully, if the data is sensitive, we must do `Encryption` on such data or Don't store it if we don't need such data.
+
+In this project, only `pizza-api` is exposed to the public, other services are not exposed due to security reason. The services can only communicate internally or through `pizz-api`. That means, we can control our public traffic in `pizza-api` or before `pizza-api` such as load balancer.
+
 # Scaling
 
 This design can be further improved by scaling the instances horizontally when there is high traffic coming to our system. As the image presented, we can scale our microservices to serve user traffic.
