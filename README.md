@@ -30,6 +30,7 @@ Entrypoint: POST `http://localhost/pizza`
 
 In this project, only `pizza-api` is exposed to the public, other services are not exposed due to security reason. The services can only communicate internally or through `pizz-api`. That means, we can control our public traffic in `pizza-api` or before `pizza-api` such as load balancer.
 
+In this project, I hardcoded the credentials in YAML file, but we should use more secure approach to manage the credentials in production environment such as `Git-Secret` or `Vault` to encrypt the credentials.
 # Scaling
 
 This design can be further improved by scaling the instances horizontally when there is high traffic coming to our system. As the image presented, we can scale our microservices to serve user traffic.
