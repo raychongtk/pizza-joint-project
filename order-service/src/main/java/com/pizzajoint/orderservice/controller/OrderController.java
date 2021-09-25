@@ -20,10 +20,11 @@ public class OrderController {
 
     @PostMapping
     public CreateOrderResponse create(@RequestBody CreateOrderRequest request) {
-        orderService.create(request.pizzaName, request.price, request.quantity);
+        String orderId = orderService.create(request.pizzaName, request.price, request.quantity);
 
         var response = new CreateOrderResponse();
         response.success = Boolean.TRUE;
+        response.orderId = orderId;
         return response;
     }
 }

@@ -10,19 +10,19 @@ import java.time.ZonedDateTime;
  * @author raychong
  */
 @Entity
-public class Order {
+public class PizzaOrder {
     @Id
     public String id;
 
-    @Column(name = "pizza_name", nullable = false)
+    @Column(nullable = false)
     public String pizzaName;
 
-    @Column(name = "quantity", nullable = false)
+    @Column(nullable = false)
     public Integer quantity;
 
-    @Column(name = "amount", nullable = false)
+    @Column(nullable = false)
     public BigDecimal amount;
 
-    @Column(name = "create_time", nullable = false)
-    public ZonedDateTime creationTime;
+    @Column(nullable = false)
+    public ZonedDateTime createdTime;
 }

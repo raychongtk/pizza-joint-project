@@ -1,12 +1,11 @@
-package pizzajoint.common.api;
+package com.pizzajoint.pizzaapi.api;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * @author raychong
  */
-public class CreateOrderResponse {
-    @NotNull
+public class CreatePizzaOrderResponse {
     public String orderId;
 
     @NotNull

@@ -5,7 +5,10 @@ services:
       context: ./pizza-api
       dockerfile: Dockerfile
     restart: always
+    environment:
+      ORDER_SVC_ENDPOINT: order-service:8080
     depends_on:
+      - db
       - order-service
     networks:
       - pizza-backend
@@ -16,10 +19,19 @@ services:
       context: ./order-service
       dockerfile: Dockerfile
     restart: always
+    environment:
+      DB_HOST: db
+      DB: pizzajointdb
+      DB_USER: pizza
+      DB_PASSWORD: password
+    depends_on:
+      - db
     networks:
       - pizza-backend
+    ports:
+      - "8080:8080"
   db:
-    image: mysql:5.7
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: 'pizzajointdb'
