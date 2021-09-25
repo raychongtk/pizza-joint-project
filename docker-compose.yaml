@@ -1,0 +1,42 @@
+version: '3.6'
+services:
+  pizza-api:
+    build:
+      context: ./pizza-api
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - order-service
+    networks:
+      - pizza-backend
+    ports:
+      - "80:8080"
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - pizza-backend
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'pizzajointdb'
+      MYSQL_USER: 'pizza'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - pizza-joint-db:/var/lib/mysql
+    networks:
+      - pizza-backend
+
+volumes:
+  pizza-joint-db:
+
+networks:
+  pizza-backend:

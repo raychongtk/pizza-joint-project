@@ -1,0 +1,23 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id 'java'
+}
+
+group = 'com.pizzajoint'
+version = '1.0.0'
+sourceCompatibility = '15'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':common-interface')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
