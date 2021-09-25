@@ -14,6 +14,8 @@ There is a `Makefile` for handling the tasks of building project and dockerizati
 
 if you want to stop docker services, you can run `make stop-docker`.
 
+Entrypoint: POST `http://localhost/pizza`
+
 # High Level Design
 
 `pizza-api` acts as a gateway for user to call the api in frontend, after the traffic coming to our app, pizza-api will then forward it to `order-service`. After that, `order-service` creates pizza order and save it to `MySQL`.
