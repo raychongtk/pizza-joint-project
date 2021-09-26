@@ -6,13 +6,16 @@ I use monorepo in this project as all services are the module in a single reposi
 
 # How to run?
 
-There is a `Makefile` for handling the tasks of building project and dockerization.
+I use `Makefile` to handle the tasks of building project and dockerization.
 
 ```
 1. make build
 2. make dockerize
 3. make run-docker
 ```
+
+What you will be expected after running the commands above:
+3 services will be up including `pizza-api`, `order-service` and `MySQL database`.
 
 if you want to stop docker services, you can run `make stop-docker`.
 
@@ -36,8 +39,8 @@ In this project, I hardcoded the credentials in YAML file, but we should use mor
 # Testing
 
 Since the api doesn't have much business logic, so I haven't implemented Unit Test or Integration Test in this project. To ensure the correctness and reliability of the system, we need to implement test cases in actual environment. Especially, unit test is quite important in a project as it can
-ensure the correction of business logic, and we can implement integration test to ensure the correction of data flow and the correctness of behaviour that all components composed together. After that, we can do Regression Test to re-run/re-test the functions to ensure that the software is still
-working after changes.
+ensure the correctness of business logic, and we can implement integration test to ensure the correctness of data flow and behaviour that all components composed together. After that, we can do Regression Test to re-run/re-test the functions to ensure that the software is still working after
+changes.
 
 After the functional test, we can do Load Test to test the maximum working load limit of our system because we need to aware that where is the bottleneck of the system and how much traffic the system can serve.
 
@@ -45,7 +48,7 @@ After the functional test, we can do Load Test to test the maximum working load 
 
 In this simple example project, we don't have much data to log, but we must do logging in real system. Before implement logging, we need to study what kind of information that can help us to debug or we need to know. In general, we can classify the log to different level such
 as `Info, Debug, Warn, and Error`. Also, for the type of log, we can have `Action Log` to log all the api actions such as request time, endpoint, user info, user device and, etc.. Other than that, we can have our `Business Log`, this kind of log is used to log the error or warning of the business
-logic maybe user input a wrong format of data. Furthermore, we also need to monitor `Infrasture Log`, if we implement K8S in the future we can monitor the K8S status by grabbing the log from K8S and also monitor the system resources and performance.
+logic maybe user input a wrong format of data. Furthermore, we also need to monitor `Infrastructure Log`, if we implement K8S in the future we can monitor the K8S status by grabbing the log from K8S and also monitor the system resources and performance.
 
 # Scaling
 
