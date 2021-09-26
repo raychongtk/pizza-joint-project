@@ -1,7 +1,7 @@
 package com.pizzajoint.pizzaapi.controller;
 
-import com.pizzajoint.pizzaapi.api.CreatePizzaOrderResponse;
 import com.pizzajoint.pizzaapi.client.OrderClient;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,5 +32,12 @@ public class GeneratePizzaController {
         ajaxResponse.orderId = response.orderId;
         ajaxResponse.success = response.success;
         return ajaxResponse;
+    }
+
+    private static class CreatePizzaOrderResponse {
+        public String orderId;
+
+        @NotNull
+        public Boolean success;
     }
 }
